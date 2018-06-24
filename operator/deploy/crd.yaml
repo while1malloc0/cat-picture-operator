@@ -1,0 +1,13 @@
+apiVersion: apiextensions.k8s.io/v1beta1
+kind: CustomResourceDefinition
+metadata:
+  name: catpictures.cat.example.com
+spec:
+  group: cat.example.com
+  names:
+    kind: CatPicture
+    listKind: CatPictureList
+    plural: catpictures
+    singular: catpicture
+  scope: Namespaced
+  version: v1

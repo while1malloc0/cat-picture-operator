@@ -1,0 +1,4 @@
+apiVersion: "cat.example.com/v1"
+kind: "CatPicture"
+metadata:
+  name: "example"

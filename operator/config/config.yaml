@@ -1,0 +1,3 @@
+apiVersion: cat.example.com/v1
+kind: CatPicture
+projectName: operator
