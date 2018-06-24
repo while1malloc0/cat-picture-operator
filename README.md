@@ -57,7 +57,6 @@ import (
 const catContainerImage = "fill-in-your-location"
 
 // newCatDeployment creates a new deployment of the cat picture service
-// newCatDeployment creates a new deployment of the cat picture service
 func newCatDeployment(cr *v1.CatPicture) *appsv1.Deployment {
 	return &appsv1.Deployment{
 		TypeMeta: metav1.TypeMeta{
