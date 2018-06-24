@@ -2,3 +2,5 @@ apiVersion: "cat.example.com/v1"
 kind: "CatPicture"
 metadata:
   name: "example"
+spec:
+  num: 1

@@ -54,6 +54,11 @@ func newCatDeployment(cr *v1.CatPicture) *appsv1.Deployment {
 		},
 
 		Spec: appsv1.DeploymentSpec{
+			Selector: &metav1.LabelSelector{
+				MatchLabels: map[string]string{
+					"app": "cat-pictures",
+				},
+			},
 			Replicas: &cr.Spec.Num,
 			Template: corev1.PodTemplateSpec{
 				ObjectMeta: metav1.ObjectMeta{
@@ -64,6 +69,7 @@ func newCatDeployment(cr *v1.CatPicture) *appsv1.Deployment {
 				Spec: corev1.PodSpec{
 					Containers: []corev1.Container{
 						{
+							Name:  "cat-pictures",
 							Image: catContainerImage,
 							Ports: []corev1.ContainerPort{
 								{
@@ -90,8 +96,11 @@ func newCatService(cr *v1.CatPicture) *corev1.Service {
 			Labels: map[string]string{
 				"service": "cats",
 			},
+			Namespace: cr.Namespace,
+			Name:      "cat-pictures",
 		},
 		Spec: corev1.ServiceSpec{
+			Type: "LoadBalancer",
 			Selector: map[string]string{
 				"app": "cat-pictures",
 			},

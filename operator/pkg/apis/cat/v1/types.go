@@ -23,7 +23,7 @@ type CatPicture struct {
 
 type CatPictureSpec struct {
 	// The number of containers to have running in the ReplicaSet
-	Num int32
+	Num int32 `json:"num,omitempty"`
 }
 
 type CatPictureStatus struct {

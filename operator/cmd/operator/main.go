@@ -4,10 +4,10 @@ import (
 	"context"
 	"runtime"
 
-	stub "github.com/while1malloc0/cat-picture-operator/operator/pkg/stub"
 	sdk "github.com/operator-framework/operator-sdk/pkg/sdk"
 	k8sutil "github.com/operator-framework/operator-sdk/pkg/util/k8sutil"
 	sdkVersion "github.com/operator-framework/operator-sdk/version"
+	cats "github.com/while1malloc0/cat-picture-operator/operator/pkg/cats"
 
 	"github.com/sirupsen/logrus"
 )
@@ -30,6 +30,6 @@ func main() {
 	resyncPeriod := 5
 	logrus.Infof("Watching %s, %s, %s, %d", resource, kind, namespace, resyncPeriod)
 	sdk.Watch(resource, kind, namespace, resyncPeriod)
-	sdk.Handle(stub.NewHandler())
+	sdk.Handle(cats.NewHandler())
 	sdk.Run(context.TODO())
 }
