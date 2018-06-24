@@ -22,8 +22,10 @@ type CatPicture struct {
 }
 
 type CatPictureSpec struct {
-	// Fill me
+	// The number of containers to have running in the ReplicaSet
+	Num int32
 }
+
 type CatPictureStatus struct {
 	// Fill me
 }
