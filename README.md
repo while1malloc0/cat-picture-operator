@@ -1,13 +1,25 @@
 # Cat Picture Operator
+
 A tutorial for creating a new custom resource type called a CatPicture. This will be acted upon by an operator written with the operator framework.
 
 ## Requirements
 
 * A Go development environment
 * A working Kubernetes cluster
-* THe operator-sdk installed
+* The operator-sdk installed
+* A place to store container images
 
 ## Build Steps
+
+### Build the cat serving app
+
+```
+# In the app directory
+make build
+docker build -t cat-operator-app:latest
+# Substitute IMAGE_REPO for the image repo of your choice
+docker push [IMAGE_REPO]/cat-operator-app:latest
+```
 
 ### Create the project scaffolding
 
