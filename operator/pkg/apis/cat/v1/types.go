@@ -24,6 +24,10 @@ type CatPicture struct {
 type CatPictureSpec struct {
 	// The number of containers to have running in the ReplicaSet
 	Num int32 `json:"num,omitempty"`
+	// The size of the served cat pictures. One of "small" or "full". Defaults to "small".
+	Size string `json:"size,omitempty"`
+	// The format that the cat pictures are served in.
+	Format string `json:"format,omitempty"`
 }
 
 type CatPictureStatus struct {

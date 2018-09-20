@@ -33,6 +33,8 @@ func (h *Handler) Handle(ctx context.Context, event sdk.Event) error {
 			logrus.Errorf("Failed to create cat service : %v", err)
 			return err
 		}
+	default:
+		logrus.Info("Received object that was not a CatPicture. Skipping.")
 	}
 
 	return nil
@@ -75,6 +77,16 @@ func newCatDeployment(cr *v1.CatPicture) *appsv1.Deployment {
 								{
 									HostPort:      8080,
 									ContainerPort: 8080,
+								},
+							},
+							Env: []coreV1.EnvVar{
+								{
+									Name:  "CAT_API_SIZE",
+									Value: o.Size,
+								},
+								{
+									Name:  "CAT_API_FORMAT",
+									Value: o.Format,
 								},
 							},
 						},

@@ -12,12 +12,12 @@ func main() {
 		w.WriteHeader(200)
 		html := `
 <html>
-<img src="https://api.thecatapi.com/v1/images/search?format=src&size=%s&formats=%s">
+<img src="https://api.thecatapi.com/v1/images/search?format=src&size=%s&mime_formats=%s">
 <footer>Powered by <a href="https://thecatapi.com">The Cat API</a></footer>
 </html>
 `
 		s := os.Getenv("CAT_API_SIZE")
-		fs := os.Getenv("CAT_API_FORMATS")
+		fs := os.Getenv("CAT_API_FORMAT")
 		fmt.Fprintf(w, fmt.Sprintf(html, s, fs))
 	})
 
